@@ -23,7 +23,6 @@ do
     switch (userSelection)
     {
         case "1":
-            //Calling addTask method from Utilities class
             Utilities.addTask(userTask);
             break;
         case "2":

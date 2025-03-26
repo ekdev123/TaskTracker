@@ -11,40 +11,54 @@ namespace TaskTracker
     {
         static List<string> taskList = new List<string>();
 
-
-
         public static void addTask(string userTask)
         {
-            Console.Write("How many tasks would you like to add? ");
-            int numOfTasks = int.Parse(Console.ReadLine());
+            int numOfTasks = 0;
+            bool validInput = false;
 
+            while (!validInput)
+            {
+                Console.Write("How many tasks would you like to add? ");
+
+                try
+                {
+                    numOfTasks = int.Parse(Console.ReadLine());
+                    validInput = true;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input, please enter a number");
+                    
+                }
+            }
             if (numOfTasks != 0)
             {
                 for (int i = 0; i < numOfTasks; i++)
                 {
-                    Console.Write("Enter task: ");
+                    Console.Write($"Enter task: {i + 1}:  ");
                     userTask = Console.ReadLine();
                     taskList.Add(userTask);
                 }
             }
-            else 
+            else
             {
                 Console.WriteLine("\nNo tasks to add returning to selection menu");
                 return;
             }
+            
         }
-        internal static void deleteTask()
-        {
+        //internal static void deleteTask()
+        //{
 
-        }
-        internal static void viewTask()
-        {
+        //}
+        //internal static void viewTask()
+        //{
 
-        }
-        internal static void saveTask()
-        {
+        //}
+        //internal static void saveTask()
+        //{
 
-        }
+        //}
 
     }
 }
