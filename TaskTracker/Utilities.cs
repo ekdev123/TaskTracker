@@ -27,6 +27,7 @@ namespace TaskTracker
                 }
                 catch (FormatException)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input, please enter a number");
                     
                 }
@@ -39,6 +40,7 @@ namespace TaskTracker
                     userTask = Console.ReadLine();
                     taskList.Add(userTask);
                 }
+                Console.WriteLine("\nTasks added succesfully! Returning to main menu.");
             }
             else
             {

@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel;
 using TaskTracker;
 
-var userSelection ="";
+var userSelection =0;
 string userTask = "";
+
 
 
 do
@@ -15,27 +16,33 @@ do
         "3: Export tasks to text file\n" +
         "4: Exit\n" +
         "\nSelection: ");
-    
-    userSelection = Console.ReadLine();
+    try
+    {
+        userSelection = int.Parse(Console.ReadLine());
+    }catch (FormatException) 
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Invalid selection, please enter a number 1-4:");
 
-    
+    }
 
     switch (userSelection)
     {
-        case "1":
+        case 1:
             Utilities.addTask(userTask);
             break;
-        case "2":
+        case 2:
             //logic to delete task from list
             break;
-        case "3":
+        case 3:
             //logic to Export task to text file
             break;
-        case "4":
+        case 4:
             //exit app
-            break;   
+            break;
+
     }
 
-} while (userSelection != "4");
+} while (userSelection != 4);
 
 Console.WriteLine("Thank you, have a great day");
