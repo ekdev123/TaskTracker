@@ -4,8 +4,6 @@ using TaskTracker;
 var userSelection =0;
 string userTask = "";
 
-
-
 do
 {
     Console.ForegroundColor = ConsoleColor.Green;
@@ -22,8 +20,8 @@ do
     }catch (FormatException) 
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("Invalid selection, please enter a number 1-4:");
-
+        Console.WriteLine("\nInvalid selection, please enter a number 1-4:\n");
+        
     }
 
     switch (userSelection)

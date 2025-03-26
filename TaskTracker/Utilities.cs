@@ -18,6 +18,7 @@ namespace TaskTracker
 
             while (!validInput)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("How many tasks would you like to add? ");
 
                 try
@@ -28,8 +29,7 @@ namespace TaskTracker
                 catch (FormatException)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid input, please enter a number");
-                    
+                    Console.WriteLine("\nInvalid input, please enter a number\n");           
                 }
             }
             if (numOfTasks != 0)
