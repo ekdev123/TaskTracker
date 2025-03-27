@@ -21,6 +21,7 @@ do
     {
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nInvalid selection, please enter a number 1-4:\n");
+        continue;
         
     }
 
@@ -31,6 +32,7 @@ do
             break;
         case 2:
             //logic to delete task from list
+            Utilities.deleteTask();
             break;
         case 3:
             //logic to Export task to text file
@@ -43,4 +45,4 @@ do
 
 } while (userSelection != 4);
 
-Console.WriteLine("Thank you, have a great day");
+Console.WriteLine("\nThank you, have a great day");
