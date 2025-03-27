@@ -9,10 +9,11 @@ do
     Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("\n**** Task Tracker ****\n\n");
     Console.Write("--- Enter a selection ---\n\n" +
-        "1: Add Tasks\n" +
-        "2: Delete Task\n" +
-        "3: Export tasks to text file\n" +
-        "4: Exit\n" +
+        "1: Add Task(s)\n" +
+        "2: Delete Task(s)\n" +
+        "3: View Task(s)\n" +
+        "4: Send Task(s) to text file\n" +
+        "5: Exit\n" +
         "\nSelection: ");
     try
     {
@@ -31,14 +32,15 @@ do
             Utilities.addTask(userTask);
             break;
         case 2:
-            //logic to delete task from list
             Utilities.deleteTask();
             break;
         case 3:
-            //logic to Export task to text file
+            Utilities.viewTask();
             break;
         case 4:
-            //exit app
+            //future method call
+            break;
+        case 5:
             break;
 
     }
