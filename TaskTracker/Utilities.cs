@@ -52,19 +52,41 @@ namespace TaskTracker
         }
         public static void deleteTask() //delete task method
         {
+            
+            Console.Write("Printing the tasks:\n");
+            for (int i = 0; i < taskList.Count; i++) //logic to iterate through task list and also print position [i] 
+            {
+                Console.WriteLine($"{i + 1}, {taskList[i]}");
+            }
+            Console.Write("Which task would you like to \u001b[31mDelete?\u001b[0m "); //Being extra, inserting unicode for delete keyword to make it red
+
             int taskNumberDelete = 0;
             bool validInput = false;
 
-            while (!validInput) //using while to force iteration through logic
+            while (!validInput) //using while to validate user input
             {
-
-                for (int i = 0; i < taskList.Count; i++) //logic to iterate through task list and also print position [i] 
+                try
                 {
-                    Console.WriteLine($"{i + 1}, {taskList[i]}");
+                    taskNumberDelete = int.Parse(Console.ReadLine());
+                    validInput = true;
                 }
-                Console.WriteLine("Which task would you like to \u001b[31mDelete\u001b[0m? "); //Being extra, inserting unicode for delete keyword to make it red
-                taskNumberDelete = int.Parse(Console.ReadLine());
+                catch (FormatException)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\nInvalid input, please enter a number\n");
+                }
+            } 
+            if (taskNumberDelete >0 && taskNumberDelete <=taskList.Count)
+            {
+                taskList.RemoveAt(taskNumberDelete - 1);
+                Console.WriteLine("Task deleted succesfully");
             }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Invalid Task number");
+            }
+            
         }
 
             //}
